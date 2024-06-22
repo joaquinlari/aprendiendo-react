@@ -75,9 +75,16 @@ function App() { //funcion principal
     }
   }
 
+  const resetGame = () => {
+    setBoard(Array(9).fill(null))
+    setTurn(TURNS.X)
+    setWinner(null)
+  }
+
   return (
     <main className="board">
       <h1>Tic tac toe</h1>
+      <button onClick={resetGame}>Empezar de nuevo</button>
       <section className="game">
         {board.map((_, index) => {  //recorre el array 'board' con .map, ignora el primer parametro y el segundo usa el index
           return (   //por cada elemento recorrido le asigna a cada uno el componente <Square> el cual crea un <div>
@@ -91,10 +98,33 @@ function App() { //funcion principal
           )
         })}
       </section>
-      <section className="turn"> {/*le agrega el parametro 'isSelected' a <Square>*/}
+      <section className="turn"> { /*le agrega el parametro 'isSelected' a <Square>*/}
         <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>   {/*si el turno es de 'X' muestra 'X' */}
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>  {/*si el turno es de 'O' muestra 'O' */}
       </section>
+
+      {
+        winner !== null && (
+          <section className="winner">
+            <div className="text">
+              <h2>
+                {
+                  winner === false
+                    ? 'Empate'
+                    : `Ganó:`
+                }
+              </h2>
+
+              <header className="win">
+                {winner && <Square>{winner}</Square>}
+              </header>
+              <footer>
+                <button onClick={resetGame}>Empezar de nuevo</button>
+              </footer>
+            </div>
+          </section>
+        )
+      }
     </main>
   )
 }
