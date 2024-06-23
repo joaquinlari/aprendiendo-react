@@ -1,6 +1,7 @@
 import './App.css'
 import { useState } from 'react'
 import PropTypes from 'prop-types';
+import confetti from 'canvas-confetti';
 
 const TURNS = {  // se crean los turnos 'X' y 'O'
   X: 'x',
@@ -62,7 +63,6 @@ function App() { //funcion principal
     return newBoard.every((square) => square !== null)
   }
 
-
   const updateBoard = (index) => {   //acá se crea la funcion 'updateBoard' que se utilizo arriba, es llamado por 'handleClick'
     if (board[index] || winner) return // si tiene algo no se actualiza
 
@@ -76,6 +76,7 @@ function App() { //funcion principal
     const newWinner = checkWinner(newBoard)
 
     if (newWinner) {
+      confetti()
       setWinner(newWinner)
     } else if (checkEndGame(newBoard)) {
       setWinner(false)
@@ -135,5 +136,5 @@ function App() { //funcion principal
     </main>
   )
 }
-// repasar 'Rspread' y 'rest' operator
+// repasar 'spread' y 'rest' operator
 export default App
