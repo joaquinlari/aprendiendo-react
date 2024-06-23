@@ -1,67 +1,16 @@
 import './App.css'
 import { useState } from 'react'
-import PropTypes from 'prop-types';
 import confetti from 'canvas-confetti';
 
-const TURNS = {  // se crean los turnos 'X' y 'O'
-  X: 'x',
-  O: 'o'
-}
-
-const COMBO_WINNER = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
-]
-
-const Square = ({ children, isSelected, updateBoard, index }) => {
-
-  const className = `square ${isSelected ? 'is-selected' : ''}`   //se crea una variable 'className', si 'isSelected' es true se agrega la clase 'is-selected' a 'square'
-
-  const handleClick = () => {  //funcion para ejecutar al hacer click
-    updateBoard(index)           //ejecuta otra funcion que recibe como parametro el indice
-  }
-
-  return (
-    <div onClick={handleClick} className={className}>  {/*muestra un div con el metodo 'onClick' que ejecuta la funcion 'handleClick'*/}
-      {children}
-    </div>
-  )
-}
-
-Square.propTypes = { //para evitar errores visuales molestos
-  children: PropTypes.node,
-  isSelected: PropTypes.bool,
-  updateBoard: PropTypes.func,
-  index: PropTypes.number
-};
+import { Square } from './components/Square.jsx'
+import { TURNS } from './constants.js'
+import { checkWinnerFrom, checkEndGame } from './logic/board.js';
+import { WinnerModal } from './components/WinnerModal.jsx';
 
 function App() { //funcion principal
   const [board, setBoard] = useState(Array(9).fill(null))  //crea un hook de estado para crear los 9 espacios de la tabla y rellenarlos con 'null'
   const [turn, setTurn] = useState(TURNS.X)  // crea un hook para el estado de los turnos de los jugadores, empieza por 'X'
   const [winner, setWinner] = useState(null) // hook para ganador, null es 'no hay ganador', false es 'empate'
-
-  const checkWinner = (boardToCheck) => {
-    for (const combo of COMBO_WINNER) {
-      const [a, b, c] = combo
-      if (
-        boardToCheck[a] &&
-        boardToCheck[a] === boardToCheck[b] &&
-        boardToCheck[a] === boardToCheck[c]
-      ) {
-        return boardToCheck[a] // X u O
-      }
-    }
-  }
-
-  const checkEndGame = (newBoard) => {
-    return newBoard.every((square) => square !== null)
-  }
 
   const updateBoard = (index) => {   //acá se crea la funcion 'updateBoard' que se utilizo arriba, es llamado por 'handleClick'
     if (board[index] || winner) return // si tiene algo no se actualiza
@@ -73,7 +22,7 @@ function App() { //funcion principal
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X  //si el turno es X se cambia a O y viceversa
     setTurn(newTurn) // actualiza el estado del turno con el nuevo turno
 
-    const newWinner = checkWinner(newBoard)
+    const newWinner = checkWinnerFrom(newBoard)
 
     if (newWinner) {
       confetti()
@@ -111,28 +60,7 @@ function App() { //funcion principal
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>  {/*si el turno es de 'O' muestra 'O' */}
       </section>
 
-      {
-        winner !== null && (
-          <section className="winner">
-            <div className="text">
-              <h2>
-                {
-                  winner === false
-                    ? 'Empate'
-                    : `Ganó:`
-                }
-              </h2>
-
-              <header className="win">
-                {winner && <Square>{winner}</Square>}
-              </header>
-              <footer>
-                <button onClick={resetGame}>Empezar de nuevo</button>
-              </footer>
-            </div>
-          </section>
-        )
-      }
+      <WinnerModal resetGame={resetGame} winner={winner} />
     </main>
   )
 }
