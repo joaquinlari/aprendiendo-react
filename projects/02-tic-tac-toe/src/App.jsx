@@ -58,6 +58,11 @@ function App() { //funcion principal
     }
   }
 
+  const checkEndGame = (newBoard) => {
+    return newBoard.every((square) => square !== null)
+  }
+
+
   const updateBoard = (index) => {   //acá se crea la funcion 'updateBoard' que se utilizo arriba, es llamado por 'handleClick'
     if (board[index] || winner) return // si tiene algo no se actualiza
 
@@ -72,6 +77,8 @@ function App() { //funcion principal
 
     if (newWinner) {
       setWinner(newWinner)
+    } else if (checkEndGame(newBoard)) {
+      setWinner(false)
     }
   }
 
@@ -86,14 +93,14 @@ function App() { //funcion principal
       <h1>Tic tac toe</h1>
       <button onClick={resetGame}>Empezar de nuevo</button>
       <section className="game">
-        {board.map((_, index) => {  //recorre el array 'board' con .map, ignora el primer parametro y el segundo usa el index
+        {board.map((square, index) => {  //recorre el array 'board' con .map, primer parametro usa 'square' y el segundo usa el index
           return (   //por cada elemento recorrido le asigna a cada uno el componente <Square> el cual crea un <div>
             <Square
               key={index}
               index={index}
               updateBoard={updateBoard}
             >
-              {board[index]}
+              {square}
             </Square>
           )
         })}
