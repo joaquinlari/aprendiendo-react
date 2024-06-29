@@ -21,7 +21,7 @@ function App() { //funcion principal
   const [winner, setWinner] = useState(null) // hook para ganador, null es 'no hay ganador', false es 'empate'
 
   const updateBoard = (index) => {   //acá se crea la funcion 'updateBoard' que se utilizo arriba, es llamado por 'handleClick'
-    if (board[index] || winner) return // si tiene algo no se actualiza
+    if (board[index] || winner) return // si tiene algo o hay ganador no se actualiza
 
     const newBoard = [...board] // se crea una copia del estado del array 'board'
     newBoard[index] = turn // le agrega el estado de turn a cada indice del nuevo array
