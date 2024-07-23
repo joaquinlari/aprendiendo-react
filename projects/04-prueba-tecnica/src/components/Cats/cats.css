@@ -1,0 +1,19 @@
+.text {
+    display: flex;
+    flex-direction: column;
+}
+
+.title,
+.subtitle {
+    text-align: center;
+}
+
+.album {
+    display: flex;
+    justify-content: center;
+}
+
+.image {
+    width: auto;
+    height: auto;
+}

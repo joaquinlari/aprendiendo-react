@@ -1,0 +1,39 @@
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    width: 700px;
+    height: 700px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgb(227, 227, 227);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+    background-color: rgb(161, 161, 161, 0.3);
+    animation: pulse;
+    border-radius: 10px;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .5;
+    }
+}
