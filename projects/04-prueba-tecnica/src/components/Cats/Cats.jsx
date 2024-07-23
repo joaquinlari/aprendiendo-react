@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './cats.css'
-
+import Skeleton from '../Skeleton/Skeleton'
 
 const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact'
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com'
@@ -45,7 +45,10 @@ const Cats = () => {
                 {fact && <p className="subtitle">{fact}</p>}
             </div>
             <div className="album">
-                {imageUrl && <img className="image" src={imageUrl} alt={`Image extracted using the first three words for ${fact}`}></img>}
+                {imageUrl ?
+                    <img className="image" src={imageUrl} alt={`Image extracted using the first three words for ${fact}`}></img>
+                    : <Skeleton />
+                }
             </div>
         </main>
     )

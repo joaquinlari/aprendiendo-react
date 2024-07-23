@@ -8,8 +8,7 @@
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    width: 700px;
-    height: 700px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 3px 3px 3px rgb(227, 227, 227);
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
