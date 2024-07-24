@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import './cats.css'
 import Skeleton from '../Skeleton/Skeleton'
+import { getRandomFact } from '../../services/facts'
 
-const CAT_ENDPOINT_RANDOM_FACT = 'https://catfact.ninja/fact'
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com'
 
 let threeFirstWord;
@@ -13,24 +13,10 @@ const Cats = () => {
     const [imageUrl, setImageUrl] = useState()
     const [error, setError] = useState(null);
 
-    const getRandomFact = () => {
-        fetch(CAT_ENDPOINT_RANDOM_FACT)
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error("Network response was not ok")
-                }
-                return (res.json())
-
-            })
-
-            .then(data => {
-                const { fact } = data
-                setFact(fact)
-            })
-            .catch(error => setError(error.message))
-    }
     // para recuperar la cita al cargar la pagina
-    useEffect(getRandomFact, [])
+    useEffect(() => {
+        getRandomFact().then(newFact => setFact(newFact))
+    }, [])
 
     // para recuperar la imagen cada vez que tengamos una cita nueva
     useEffect(() => {
@@ -54,9 +40,10 @@ const Cats = () => {
             .catch(error => setError(error.message))
     }, [fact])
 
-    const handleClick = () => {
+    const handleClick = async () => {
         setError(null);
-        getRandomFact()
+        const newFact = await getRandomFact()
+        setFact(newFact)
     }
 
     return (
