@@ -1,6 +1,8 @@
 .text {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .title {
@@ -10,8 +12,29 @@
     text-decoration: underline;
 }
 
+.button {
+    width: 100px;
+    height: 50px;
+    border: 1px solid rgb(37, 189, 37);
+    outline: none;
+    background-color: transparent;
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: rgb(106, 195, 106, 0.4);
+
+}
+
+.button:active {
+    background-color: rgb(98, 197, 98);
+}
+
 .subtitle {
-    margin-top: -5px;
     text-align: center;
     font-size: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -25,4 +48,8 @@
 .image {
     width: auto;
     max-height: 750px;
+}
+
+.error {
+    color: red;
 }
