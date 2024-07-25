@@ -40,10 +40,12 @@ const Cats = () => {
             .catch(error => setError(error.message))
     }, [fact])
 
-    const handleClick = async () => {
+    const handleClick = () => {
+        getRandomFact()
+            .then(newFact => setFact(newFact))
+
         setError(null);
-        const newFact = await getRandomFact()
-        setFact(newFact)
+        setImageUrl(null)
     }
 
     return (
