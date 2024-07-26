@@ -7,17 +7,9 @@ const CAT_PREFIX_IMAGE_URL = 'https://cataas.com'
 
 let threeFirstWord;
 
-const Cats = () => {
-
-    const [fact, setFact] = useState()
+const useGetImage = ({ fact }) => {
     const [imageUrl, setImageUrl] = useState()
     const [error, setError] = useState(null);
-
-    // para recuperar la cita al cargar la pagina
-    useEffect(() => {
-        getRandomFact().then(newFact => setFact(newFact))
-    }, [])
-
     // para recuperar la imagen cada vez que tengamos una cita nueva
     useEffect(() => {
 
@@ -39,6 +31,19 @@ const Cats = () => {
             })
             .catch(error => setError(error.message))
     }, [fact])
+    return { imageUrl, setImageUrl, error, setError }
+}
+
+const Cats = () => {
+
+    const [fact, setFact] = useState()
+
+    const { imageUrl, setImageUrl, error, setError } = useGetImage({ fact })
+
+    // para recuperar la cita al cargar la pagina
+    useEffect(() => {
+        getRandomFact().then(newFact => setFact(newFact))
+    }, [])
 
     const handleClick = () => {
         getRandomFact()
