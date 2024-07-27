@@ -5,19 +5,16 @@ import { getRandomFact } from '../../services/facts'
 
 const CAT_PREFIX_IMAGE_URL = 'https://cataas.com'
 
-let threeFirstWord;
-
 const useGetImage = ({ fact }) => {
-    const [imageUrl, setImageUrl] = useState()
+    const [imageUrl, setImageUrl] = useState(null)
     const [error, setError] = useState(null);
+
     // para recuperar la imagen cada vez que tengamos una cita nueva
     useEffect(() => {
 
-        if (!fact) return
+        if (!fact) return;
 
-        threeFirstWord = fact.split(' ', 3).join(' ')
-        console.log(threeFirstWord)
-
+        const threeFirstWord = fact.split(' ', 3).join(' ')
         fetch(`${CAT_PREFIX_IMAGE_URL}/cat/says/${threeFirstWord}?size=50&color=red`)
             .then(res => {
                 if (!res.ok) {
