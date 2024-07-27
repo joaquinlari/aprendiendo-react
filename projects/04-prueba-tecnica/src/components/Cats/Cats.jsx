@@ -1,28 +1,12 @@
-import { useState, useEffect } from 'react'
 import './cats.css'
 import Skeleton from '../Skeleton/Skeleton'
-import { getRandomFact } from '../../services/facts'
 import { useCatImage } from '../../hooks/useCatImages'
-
-const useCatFact = () => {
-    const [fact, setFact] = useState()
-
-    const refreshFact = () => {
-        getRandomFact().then(newFact => setFact(newFact))
-    }
-
-    // para recuperar la cita al cargar la pagina
-    useEffect(refreshFact, [])
-
-    return { fact, refreshFact }
-}
+import { useCatFact } from '../../hooks/useCatFact'
 
 const Cats = () => {
 
     const { fact, refreshFact } = useCatFact()
     const { imageUrl, setImageUrl, error, setError } = useCatImage({ fact })
-
-
 
     const handleClick = () => {
         refreshFact()
