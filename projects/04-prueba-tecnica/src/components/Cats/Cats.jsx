@@ -4,21 +4,28 @@ import Skeleton from '../Skeleton/Skeleton'
 import { getRandomFact } from '../../services/facts'
 import { useCatImage } from '../../hooks/useCatImages'
 
-const Cats = () => {
-
+const useCatFact = () => {
     const [fact, setFact] = useState()
 
-    const { imageUrl, setImageUrl, error, setError } = useCatImage({ fact })
+    const refreshFact = () => {
+        getRandomFact().then(newFact => setFact(newFact))
+    }
 
     // para recuperar la cita al cargar la pagina
-    useEffect(() => {
-        getRandomFact().then(newFact => setFact(newFact))
-    }, [])
+    useEffect(refreshFact, [])
+
+    return { fact, refreshFact }
+}
+
+const Cats = () => {
+
+    const { fact, refreshFact } = useCatFact()
+    const { imageUrl, setImageUrl, error, setError } = useCatImage({ fact })
+
+
 
     const handleClick = () => {
-        getRandomFact()
-            .then(newFact => setFact(newFact))
-
+        refreshFact()
         setError(null);
         setImageUrl(null)
     }
