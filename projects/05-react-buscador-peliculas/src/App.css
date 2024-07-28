@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.box-header {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.box-results {
+    text-align: center;
+}
