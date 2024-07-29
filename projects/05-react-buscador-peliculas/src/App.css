@@ -1,7 +1,4 @@
 .container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     text-align: center;
 }
 
@@ -12,5 +9,10 @@
 }
 
 .box-results {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-results-ul_li {
+    list-style: none;
 }
