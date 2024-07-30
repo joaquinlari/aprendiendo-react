@@ -18,10 +18,10 @@ function ListOfMovies({ movies }) {
 
 ListOfMovies.propTypes = {
     movies: PropTypes.arrayOf(PropTypes.shape({
-        imdbID: PropTypes.string.isRequired,
-        Title: PropTypes.string.isRequired,
-        Year: PropTypes.string.isRequired,
-        Poster: PropTypes.string.isRequired
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        year: PropTypes.string.isRequired,
+        poster: PropTypes.string.isRequired
     })).isRequired
 };
 
@@ -44,9 +44,9 @@ export function Movies({ movies }) {
 
 Movies.propTypes = {
     movies: PropTypes.arrayOf(PropTypes.shape({
-        imdbID: PropTypes.string.isRequired,
-        Title: PropTypes.string.isRequired,
-        Year: PropTypes.string.isRequired,
-        Poster: PropTypes.string.isRequired
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        year: PropTypes.string.isRequired,
+        poster: PropTypes.string.isRequired
     })).isRequired
 };
