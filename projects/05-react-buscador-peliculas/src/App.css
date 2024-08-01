@@ -16,3 +16,18 @@
 .box-results-ul_li {
     list-style: none;
 }
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form input {
+    width: 60%;
+}
+
+.form button {
+    width: 30%;
+}

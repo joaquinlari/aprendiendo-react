@@ -52,8 +52,8 @@ function App() {
     <div className="container">
       <header className="box-header">
         <h1>Buscador de películas</h1>
-        <form onSubmit={handleSubmit}>
-          <input onChange={handleChange} value={search} name="query" placeholder="Avengers, Star Wars, Attack on titan..."></input>
+        <form className="form" onSubmit={handleSubmit}>
+          <input onChange={handleChange} name="query" placeholder="Avengers, Star Wars, Attack on titan..."></input>
           <button type="submit">Buscar</button>
         </form>
         {error && <p style={{ color: 'red' }}>{error}</p>}
