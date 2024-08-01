@@ -5,15 +5,11 @@
 .box-header {
     display: flex;
     flex-direction: column;
-
 }
 
-.box-results {
-    display: flex;
-    flex-direction: column;
-}
+.movies {}
 
-.box-results-ul_li {
+.movie {
     list-style: none;
 }
 
