@@ -59,7 +59,7 @@ function App() {
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </header>
 
-      <main className="box-results">
+      <main>
         <Movies movies={movies} />
       </main>
     </div >

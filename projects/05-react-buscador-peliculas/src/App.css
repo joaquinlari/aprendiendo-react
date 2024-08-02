@@ -1,22 +1,35 @@
 .container {
     text-align: center;
+    justify-content: center;
+    width: 100%;
 }
-
 
 .box-header {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .movies {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
+    gap: 32px;
 }
 
 .movie {
     list-style: none;
+    text-align: center;
+}
+
+.movie h3,
+.movie p {
+    margin: 0
+}
+
+.movie img {
+    border-radius: 8px;
+    margin-top: 12px
 }
 
 .form {
