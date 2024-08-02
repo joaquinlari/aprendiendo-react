@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 function ListOfMovies({ movies }) {
     return (
         < ul className="movies">
@@ -16,16 +14,6 @@ function ListOfMovies({ movies }) {
     )
 }
 
-ListOfMovies.propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        year: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired
-    })).isRequired
-};
-
-
 function NoMoviesResults() {
     return (
         <p>No se encontraron resultados</p>
@@ -41,12 +29,3 @@ export function Movies({ movies }) {
             : <NoMoviesResults />
     )
 }
-
-Movies.propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        year: PropTypes.string.isRequired,
-        poster: PropTypes.string.isRequired
-    })).isRequired
-};
