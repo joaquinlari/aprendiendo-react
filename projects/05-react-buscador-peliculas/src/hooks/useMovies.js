@@ -1,23 +1,15 @@
-import withResults from '../mocks/with-results.json'
-import withoutResults from '../mocks/no-results'
 import { useState } from 'react'
+import { searchMovies } from '../services/movies'
 
 export function useMovies({ search }) {
 
-    const [responseMovies, setResponseMovies] = useState([])
+    const [movies, setMovies] = useState([])
 
-    const getMovies = () => {
+    const getMovies = async () => {
 
-        if (search) {
-            fetch(`https://www.omdbapi.com/?apikey=fb6a907c&s=${search}`)
-                .then(res => res.json())
-                .then(json => {
-                    setResponseMovies(json)
-                })
-        } else {
-            setResponseMovies(withoutResults)
-        }
+        const newMovies = await searchMovies({ search })
+        setMovies(newMovies)
     }
 
-    return { movies: mappedMovies, getMovies }
+    return { movies, getMovies }
 }
