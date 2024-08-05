@@ -5,12 +5,19 @@ export function useMovies({ search }) {
 
     const [movies, setMovies] = useState([])
     const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     const getMovies = async () => {
-
-        const newMovies = await searchMovies({ search })
-        setMovies(newMovies)
+        try {
+            setLoading(true)
+            setError(false)
+            const newMovies = await searchMovies({ search })
+            setMovies(newMovies)
+        } catch (e) {
+            setError(e.message)
+        } finally {
+            setLoading(false)
+        }
     }
 
     return { movies, getMovies }
