@@ -47,6 +47,11 @@ function App() {
   const handleChange = (event) => {
     updateSearch(event.target.value)
   }
+
+  const handleSort = () => {
+    setSort(!sort)
+  }
+
   return (
     <div className="container">
       <header className="box-header">
