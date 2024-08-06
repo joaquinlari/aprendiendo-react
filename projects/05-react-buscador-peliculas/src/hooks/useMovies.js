@@ -24,9 +24,9 @@ export function useMovies({ search, sort }) {
         }
     }
 
-    const sortedMovies = () => {
-        ?[...movies].sort((a, b) => a.title.localeCompare(b.title))
-}
+    const sortedMovies = sort
+        ? [...movies].sort((a, b) => a.title.localeCompare(b.title))
+
 
 return { movies, getMovies, loading }
 }
