@@ -42,7 +42,7 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    getMovies()
+    getMovies({ search })
   }
   const handleChange = (event) => {
     updateSearch(event.target.value)
