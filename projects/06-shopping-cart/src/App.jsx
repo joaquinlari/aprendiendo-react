@@ -1,10 +1,6 @@
-import './App.css'
-
 function App() {
   return (
-    <>
-      <div>Hola</div>
-    </>
+    <h1>Shopping Cart 🛒</h1>
   )
 }
 
