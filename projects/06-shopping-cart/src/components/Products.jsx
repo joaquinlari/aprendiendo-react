@@ -6,10 +6,10 @@ export function Products({ products }) {
         <main className="products">
             <ul>
                 {products.map(product => (
-                    <li>
-                        <h3>{products.name}</h3>
-                        <p>{products.price}</p>
-                        <img>{products.image}</img>
+                    <li key={product.id}>
+                        <h3>{product.name}</h3>
+                        <p>{product.price}</p>
+                        <img src={product.thumbnail} alt={product.title}></img>
                     </li>
                 ))}
             </ul>
