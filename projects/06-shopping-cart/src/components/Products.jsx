@@ -7,9 +7,16 @@ export function Products({ products }) {
             <ul>
                 {products.map(product => (
                     <li key={product.id}>
-                        <h3>{product.name}</h3>
-                        <p>{product.price}</p>
-                        <img src={product.thumbnail} alt={product.title}></img>
+                        <img src={product.thumbnail} alt={product.title} />
+                        <div>
+                            <strong>{product.title}</strong>
+                        </div>
+                        <div>
+                            <button>
+                                <AddToCartIcon />
+                            </button>
+                        </div>
+
                     </li>
                 ))}
             </ul>
