@@ -16,8 +16,11 @@ function App() {
       )
     })
   }
+
+  const filteredProducts = filterProducts(products)
+
   return (
-    <Products products={products} />
+    <Products products={filteredProducts} />
   )
 }
 
