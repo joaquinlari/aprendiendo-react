@@ -16,7 +16,6 @@ function App() {
       )
     })
   }
-
   return (
     <Products products={products} />
   )
