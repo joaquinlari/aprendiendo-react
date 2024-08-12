@@ -12,8 +12,8 @@ function App() {
   const filterProducts = (products) => {
     return products.filter(product => {
       return (
-        products.price >= filters.minPrice &&
-        (filters.category === 'all' || products.category === filters.category)
+        product.price >= filters.minPrice &&
+        (filters.category === 'all' || product.category === filters.category)
       )
     })
   }

@@ -1,6 +1,6 @@
 export function Filters() {
     return (
-        <div>Filters</div>
+        <div>Aqui van los Filters</div>
     )
 }
 
