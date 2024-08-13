@@ -1,6 +1,10 @@
 export function Filters() {
     return (
-        <div>Aqui van los Filters</div>
+        <section className='filters'>
+            <div>
+                <label htmlFor='price'>Price</label>
+            </div>
+        </section>
     )
 }
 
