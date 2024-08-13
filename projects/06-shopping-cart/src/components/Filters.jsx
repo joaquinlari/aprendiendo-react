@@ -2,7 +2,7 @@ export function Filters() {
     return (
         <section className='filters'>
             <div>
-                <label htmlFor='price'>Price</label>
+                <label htmlFor='price'>Precio</label>
                 <input
                     type='range'
                     id='price'
@@ -13,7 +13,7 @@ export function Filters() {
             <div>
                 <label htmlFor='category'>Categoría</label>
                 <select id='category'>
-                    <option value='all'>All</option>
+                    <option value='all'>Todas</option>
                 </select>
             </div>
         </section>
