@@ -14,6 +14,8 @@ export function Filters() {
                 <label htmlFor='category'>Categoría</label>
                 <select id='category'>
                     <option value='all'>Todas</option>
+                    <option value='laptops'>Portátiles</option>
+                    <option value='smartphones'>Celulares</option>
                 </select>
             </div>
         </section>
