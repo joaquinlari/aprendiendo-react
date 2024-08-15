@@ -1,17 +1,24 @@
 import { useState } from 'react'
 import './Filters.css'
 
-export function Filters() {
+export function Filters({ onChange }) {
     const [minPrice, setMinPrice] = useState(0)
 
     const handleChangeMinPrice = (event) => {
         setMinPrice(event.target.value)
+        onChange(prevState => {
+            return {
+                ...prevState,
+                minPrice: event.taget.value
+            }
+        })
     }
+
 
     return (
         <section className='filters'>
             <div>
-                <label htmlFor='price'>Precio</label>
+                <label htmlFor='price'>A partir de:</label>
                 <input
                     type='range'
                     id='price'
