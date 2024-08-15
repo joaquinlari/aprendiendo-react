@@ -19,6 +19,13 @@ export function Filters({ onChange }) {
         })
     }
 
+    const handleChangeCategory = (event) => {
+        onChange(prevState => ({
+            ...prevState,
+            minPrice: event.taget.value
+        })
+        )
+    }
 
     return (
         <section className='filters'>
@@ -35,7 +42,7 @@ export function Filters({ onChange }) {
             </div>
             <div>
                 <label htmlFor='category'>Categoría</label>
-                <select id='category'>
+                <select id='category' onChange={handleChangeCategory}>
                     <option value='all'>Todas</option>
                     <option value='laptops'>Portátiles</option>
                     <option value='smartphones'>Celulares</option>
