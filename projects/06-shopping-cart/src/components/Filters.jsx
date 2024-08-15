@@ -1,5 +1,10 @@
 import { useState } from 'react'
 import './Filters.css'
+import PropTypes from 'prop-types';
+
+Filters.propTypes = {
+    onChange: PropTypes.func.isRequired
+};
 
 export function Filters({ onChange }) {
     const [minPrice, setMinPrice] = useState(0)

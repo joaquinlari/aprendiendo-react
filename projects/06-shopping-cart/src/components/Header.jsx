@@ -1,4 +1,9 @@
 import { Filters } from './Filters.jsx'
+import PropTypes from 'prop-types';
+
+Header.propTypes = {
+    changeFilters: PropTypes.func.isRequired
+};
 
 export function Header({ changeFilters }) {
     return (
