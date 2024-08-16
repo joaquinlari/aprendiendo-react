@@ -29,4 +29,4 @@ function useFilters() {
   )
 }
 
-export default App
+export default useFilters
