@@ -22,7 +22,7 @@ export function Filters({ onChange }) {
     const handleChangeCategory = (event) => {
         onChange(prevState => ({
             ...prevState,
-            minPrice: event.target.value
+            category: event.target.value
         })
         )
     }
