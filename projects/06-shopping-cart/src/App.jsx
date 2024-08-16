@@ -27,6 +27,7 @@ function useFilters() {
       <Products products={filteredProducts} />
     </>
   )
+  return { filterProducts }
 }
 
 export default useFilters
