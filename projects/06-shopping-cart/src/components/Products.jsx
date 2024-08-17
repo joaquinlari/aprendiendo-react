@@ -1,16 +1,5 @@
 import './Products.css'
 import { AddToCartIcon } from './Icons'
-import PropTypes from 'prop-types';
-
-Products.propTypes = {
-    products: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            thumbnail: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired
-        })
-    ).isRequired
-};
 
 export function Products({ products }) {
     return (
