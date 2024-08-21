@@ -1,5 +1,6 @@
 import { useId } from "react";
 import { CartIcon, ClearCartIcon, RemoveFromCartIcon } from "./Icons";
+import './Cart.css'
 
 export function Cart() {
     const cartCheckboxId = useId();
