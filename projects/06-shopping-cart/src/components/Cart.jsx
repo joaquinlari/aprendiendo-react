@@ -11,9 +11,22 @@ export function Cart() {
             </label>
             <input id={cartCheckboxId} type='checkbox' hidden />
 
-            <aside>
-
+            <aside className="cart">
+                <ul>
+                    <li>
+                        <img src="src\assets\iphone.jpg"
+                            alt='Iphone 15'
+                        />
+                        <div>
+                            <strong>Iphone 15 Pro</strong> - $1.499
+                        </div>
+                        <footer>
+                            <small>Qty: 1</small>
+                        </footer>
+                    </li>
+                </ul>
             </aside>
         </>
     )
 }
+
