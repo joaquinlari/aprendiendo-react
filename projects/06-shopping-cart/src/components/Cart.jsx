@@ -5,9 +5,14 @@ export function Cart() {
     const cartCheckboxId = useId();
     return (
         <>
-            <label className="cart-button" htmlFor='cart'>
+            <label className="cart-button" htmlFor={cartCheckboxId}>
                 <CartIcon />
             </label>
+            <input id={cartCheckboxId} type='checkbox' hidden />
+
+            <aside>
+
+            </aside>
         </>
     )
 }
