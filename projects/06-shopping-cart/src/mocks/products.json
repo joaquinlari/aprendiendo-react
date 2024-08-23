@@ -384,7 +384,7 @@
     },
     {
       "id": 21,
-      "title": "- Daal Masoor 500 grams",
+      "title": "Daal Masoor 500 grams",
       "description": "Fine quality Branded Product Keep in a cool and dry place",
       "price": 20,
       "discountPercentage": 4.81,
@@ -392,7 +392,7 @@
       "stock": 133,
       "brand": "Saaf & Khaas",
       "category": "groceries",
-      "thumbnail": "src/assets/Daal Masoor 500 grams.png",
+      "thumbnail": "src/assets/Daal Masoor 500 grams.jpg",
       "images": [
         "https://i.dummyjson.com/data/products/21/1.png",
         "https://i.dummyjson.com/data/products/21/2.jpg",
