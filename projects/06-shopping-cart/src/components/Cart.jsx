@@ -23,7 +23,7 @@ export function Cart() {
         </li>
     }
 
-    const { cart, clearCart } = useCart()
+    const { cart, clearCart, addToCart } = useCart()
     return (
         <>
             <label className="cart-button" htmlFor={cartCheckboxId}>
@@ -33,7 +33,12 @@ export function Cart() {
 
             <aside className="cart">
                 <ul>
-                    {CartItem}
+                    {cart.map(product => {
+                        <CartItem
+                            key={product.id}
+                            addToCart={() => addToCart(product)}
+                            {...product} />
+                    })}
                 </ul>
 
                 <button onClick={clearCart}>
