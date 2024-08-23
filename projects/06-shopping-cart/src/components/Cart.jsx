@@ -6,7 +6,7 @@ import { useCart } from "../hooks/useCart";
 export function Cart() {
     const cartCheckboxId = useId();
 
-    function CartItem({ thumbnail, title, price, quantity }) {
+    function CartItem({ thumbnail, title, price, quantity, addToCart }) {
         <li>
             <img src={thumbnail}
                 alt={title}
@@ -15,9 +15,10 @@ export function Cart() {
                 <strong>{title}</strong> - ${price}
             </div>
             <footer>
-                <small>
+                <small onClick={addToCart}>
                     Qty: {quantity}
                 </small>
+                <button>+</button>
             </footer>
         </li>
     }
