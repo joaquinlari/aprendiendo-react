@@ -6,6 +6,22 @@ import { useCart } from "../hooks/useCart";
 export function Cart() {
     const cartCheckboxId = useId();
 
+    function CartItem({ thumbnail, title, price, quantity }) {
+        <li>
+            <img src={thumbnail}
+                alt={title}
+            />
+            <div>
+                <strong>{title}</strong> - ${price}
+            </div>
+            <footer>
+                <small>
+                    Qty: {quantity}
+                </small>
+            </footer>
+        </li>
+    }
+
     const { cart, clearCart } = useCart()
     return (
         <>
@@ -16,17 +32,7 @@ export function Cart() {
 
             <aside className="cart">
                 <ul>
-                    <li>
-                        <img src="src\assets\iphone.jpg"
-                            alt='Iphone 15'
-                        />
-                        <div>
-                            <strong>Iphone 15 Pro</strong> - $1.499
-                        </div>
-                        <footer>
-                            <small>Qty: 1</small>
-                        </footer>
-                    </li>
+                    {CartItem}
                 </ul>
 
                 <button onClick={clearCart}>
