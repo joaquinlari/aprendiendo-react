@@ -16,10 +16,10 @@ export function Cart() {
                     <strong>{title}</strong> - ${price}
                 </div>
                 <footer>
-                    <small onClick={addToCart}>
+                    <small>
                         Qty: {quantity}
                     </small>
-                    <button>+</button>
+                    <button onClick={addToCart}>+</button>
                 </footer>
             </li>
         )
