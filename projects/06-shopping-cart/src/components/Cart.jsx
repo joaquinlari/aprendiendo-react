@@ -33,12 +33,13 @@ export function Cart() {
 
             <aside className="cart">
                 <ul>
-                    {cart.map(product => {
+                    {cart.map(product => (
                         <CartItem
                             key={product.id}
                             addToCart={() => addToCart(product)}
-                            {...product} />
-                    })}
+                            {...product}
+                        />
+                    ))}
                 </ul>
 
                 <button onClick={clearCart}>
