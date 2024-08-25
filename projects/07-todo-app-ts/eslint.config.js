@@ -12,7 +12,8 @@ export default [
   pluginReact.configs.flat.recommended,
   {
     rules: {
-      "no-unused-vars": ["error", { "varsIgnorePattern": "^React$" }]
+      "no-unused-vars": ["error", { "varsIgnorePattern": "^React$" }],
+      "react/react-in-jsx-scope": "off"
     }
   }
 ];
