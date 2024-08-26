@@ -12,6 +12,7 @@ export default [
   pluginReact.configs.flat.recommended,
   {
     rules: {
+      "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
       '@typescript-eslint/explicit-function-return-type': 'warn', // O 'error' si quieres ser más estricto
     }

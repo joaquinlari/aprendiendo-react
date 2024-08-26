@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Todos} from './components/Todos'
+import { Todos } from "./components/Todos";
 const mocksTodos = [
   {
     id: "1",
@@ -19,18 +19,11 @@ const mocksTodos = [
 ];
 
 const App = (): JSX.Element => {
-  const [todos, setTodos] = useState(mocksTodos);
+  const [todos] = useState(mocksTodos);
   return (
     <>
       <h1>To-do App</h1>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id} data-state={todo.completed.toString()}>
-            {todo.title}
-          </li>
-        ))}
-      </ul>
-      <Todos todos={todos}
+      <Todos todos={todos} />
     </>
   );
 };
