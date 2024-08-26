@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import {Todos} from './components/Todos'
 const mocksTodos = [
   {
     id: "1",
@@ -30,6 +30,7 @@ const App = (): JSX.Element => {
           </li>
         ))}
       </ul>
+      <Todos todos={todos}
     </>
   );
 };
