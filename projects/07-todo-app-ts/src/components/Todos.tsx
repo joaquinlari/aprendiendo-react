@@ -1,10 +1,16 @@
-interface Todo = {
+interface Todo {
   id: number;
   title: string;
   completed: boolean;
-};
+}
 
-export const Todos = ({ todos }): JSX.Element => {
+type ListOfTodos = Todo[];
+
+interface Props {
+  todos: ListOfTodos;
+}
+
+export const Todos: React.FC<Props> = ({ todos }) => {
   return (
     <ul>
       {todos.map((todo) => (
