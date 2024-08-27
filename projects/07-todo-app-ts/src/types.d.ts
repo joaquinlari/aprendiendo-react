@@ -5,3 +5,7 @@ export interface Todo {
 }
 
 export type ListOfTodos = Todo[];
+
+export interface Props {
+  todos: ListOfTodos;
+}
