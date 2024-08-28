@@ -23,8 +23,10 @@ const App = (): JSX.Element => {
   const [todos] = useState(mocksTodos);
   return (
     <>
-      <h1>To-do App</h1>
-      <Todos todos={todos} />
+      <div className="todoapp">
+        <h1>To-do App</h1>
+        <Todos todos={todos} />
+      </div>
     </>
   );
 };
