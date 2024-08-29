@@ -3,6 +3,7 @@ import { Todo } from "./Todo";
 
 interface Props {
   todos: ListOfTodos;
+  onRemove: (id: number) => void;
 }
 
 export const Todos: React.FC<Props> = ({ todos }) => {

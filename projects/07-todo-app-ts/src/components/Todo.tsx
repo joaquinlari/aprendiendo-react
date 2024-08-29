@@ -2,7 +2,7 @@ import { type Todo as TodoType } from "../types";
 
 type Props = TodoType;
 
-export const Todo: React.FC<Props> = ({ id, title, completed }) => {
+export const Todo: React.FC<Props> = ({ title, completed }) => {
   return (
     <div className="view">
       <input
