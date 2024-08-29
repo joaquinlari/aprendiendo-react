@@ -5,7 +5,7 @@ const mocksTodos = [
   {
     id: 1,
     title: "Aprender React",
-    completed: false,
+    completed: true,
   },
   {
     id: 2,
