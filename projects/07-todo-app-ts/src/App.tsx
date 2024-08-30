@@ -31,13 +31,28 @@ const App = (): JSX.Element => {
   const handleCompleted = ({
     id,
     completed,
-  }: Pick<TodoType, "id" | "completed">): void => {};
+  }: Pick<TodoType, "id" | "completed">): void => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed,
+        };
+      }
+      return todo;
+    });
+    setTodos(newTodos);
+  };
 
   return (
     <>
       <div className="todoapp">
         <h1>To-do App</h1>
-        <Todos todos={todos} onRemove={handleRemove} />
+        <Todos
+          todos={todos}
+          onRemove={handleRemove}
+          onCompleted={handleCompleted}
+        />
       </div>
     </>
   );
