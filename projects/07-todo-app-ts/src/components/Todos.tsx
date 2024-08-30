@@ -3,8 +3,8 @@ import { Todo } from "./Todo";
 
 interface Props {
   todos: ListOfTodos;
-  onRemove: ({ id }: TodoId) => void;
-  handleCompleted: ({ id, completed }: TodoType) => void;
+  onCompleted: ({ id, completed }: Pick<TodoType, "id" | "completed">) => void;
+  onRemove: (id: TodoId) => void;
 }
 
 export const Todos: React.FC<Props> = ({ todos, onRemove }) => {
@@ -17,6 +17,7 @@ export const Todos: React.FC<Props> = ({ todos, onRemove }) => {
             id={todo.id}
             title={todo.title}
             completed={todo.completed}
+            onCompleted={handleCompleted}
             onRemove={onRemove}
           />
         </li>

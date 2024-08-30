@@ -1,7 +1,7 @@
 import { TodoId, type Todo as TodoType } from "../types";
 
 interface Props extends TodoType {
-  onRemove: ({ id }: TodoId) => void;
+  onRemove: (id: TodoId) => void;
 }
 
 export const Todo: React.FC<Props> = ({ id, title, completed, onRemove }) => {
@@ -17,7 +17,7 @@ export const Todo: React.FC<Props> = ({ id, title, completed, onRemove }) => {
       <button
         className="destroy"
         onClick={() => {
-          onRemove({ id });
+          onRemove(id);
         }}
       />
     </div>
