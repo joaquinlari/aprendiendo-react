@@ -9,3 +9,4 @@ export type TodoTitle = ["title"];
 export type TodoCompleted = ["completed"];
 
 export type ListOfTodos = Todo[];
+export type TodoType = Todo;

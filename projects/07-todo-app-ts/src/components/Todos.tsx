@@ -7,7 +7,7 @@ interface Props {
   onRemove: (id: TodoId) => void;
 }
 
-export const Todos: React.FC<Props> = ({ todos, onRemove }) => {
+export const Todos: React.FC<Props> = ({ todos, onRemove, onCompleted }) => {
   return (
     <ul className="todo-list">
       {todos.map((todo) => (
@@ -17,7 +17,7 @@ export const Todos: React.FC<Props> = ({ todos, onRemove }) => {
             id={todo.id}
             title={todo.title}
             completed={todo.completed}
-            onCompleted={handleCompleted}
+            onCompleted={onCompleted}
             onRemove={onRemove}
           />
         </li>
