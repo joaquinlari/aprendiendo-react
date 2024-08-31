@@ -14,6 +14,16 @@ export const Filters: React.FC<Props> = ({
           Todos
         </a>
       </li>
+      <li>
+        <a
+          className={`${filterSelected === "active" ? "selected" : ""}`}
+          onClick={() => {
+            onFilterChange("active");
+          }}
+        >
+          Activos
+        </a>
+      </li>
     </ul>
   );
 };
