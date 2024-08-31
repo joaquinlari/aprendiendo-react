@@ -1,3 +1,5 @@
+import { Filters } from "./Filters";
+
 export const Footer: React.FC<Props> = ({
   activeCount,
   todos,
@@ -9,7 +11,7 @@ export const Footer: React.FC<Props> = ({
         <strong>{todos.length}</strong> tareas pendientes
       </span>
 
-      <Filters filterSelected={} onFilterChange={() => {}} />
+      <Filters filterSelected={"all"} onFilterChange={() => {}} />
     </footer>
   );
 };
