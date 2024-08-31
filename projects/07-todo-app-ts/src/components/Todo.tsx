@@ -12,15 +12,21 @@ export const Todo: React.FC<Props> = ({
   onRemove,
   onCompleted,
 }) => {
+  const handleOnCompleted = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    onCompleted({
+      id,
+      completed: event.target.checked,
+    });
+  };
   return (
     <div className="view">
       <input
         className="toggle"
         type="checkbox"
         checked={completed}
-        onChange={(event) => {
-          onCompleted({ id, completed: event.target.checked });
-        }}
+        onChange={handleOnCompleted}
       />
       <label>{title}</label>
       <button
