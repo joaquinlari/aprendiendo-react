@@ -24,6 +24,16 @@ export const Filters: React.FC<Props> = ({
           Activos
         </a>
       </li>
+      <li>
+        <a
+          className={`${filterSelected === "completed" ? "selected" : ""}`}
+          onClick={() => {
+            onFilterChange("completed");
+          }}
+        >
+          Activos
+        </a>
+      </li>
     </ul>
   );
 };
