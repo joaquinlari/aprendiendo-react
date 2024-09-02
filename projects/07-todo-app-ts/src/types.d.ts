@@ -10,3 +10,5 @@ export type TodoCompleted = ["completed"];
 
 export type ListOfTodos = Todo[];
 export type TodoType = Todo;
+
+export type FilterValue = (typeof TODO_FILTERS)[keyof typeof TODO_FILTERS];

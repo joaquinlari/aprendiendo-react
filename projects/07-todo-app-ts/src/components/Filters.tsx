@@ -1,7 +1,8 @@
 import { type TODO_FILTERS, type FILTERS_BUTTONS } from "../consts";
+import { FilterValue } from "../types";
 
 interface Props {
-  filterSelected: (typeof TODO_FILTERS)[keyof typeof TODO_FILTERS];
+  filterSelected: FilterValue;
 }
 
 export const Filters: React.FC<Props> = ({
