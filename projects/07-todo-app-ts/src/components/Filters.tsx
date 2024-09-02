@@ -10,7 +10,6 @@ export const Filters: React.FC<Props> = ({
   filterSelected,
   onFilterChange,
 }) => {
-  const handleClick = () => {};
   return (
     <ul className="filters">
       {Object.entries(FILTERS_BUTTONS).map(([key, { href, literal }]) => {
@@ -18,7 +17,14 @@ export const Filters: React.FC<Props> = ({
         const className = isSelected ? "selected" : "";
         return (
           <li key={key}>
-            <a href={href} className={className} onClick={handleClick(key)}>
+            <a
+              href={href}
+              className={className}
+              onClick={(event) => {
+                event.preventDefault();
+                onFilterChange(key as FilterValue);
+              }}
+            >
               {literal}
             </a>
           </li>
