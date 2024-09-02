@@ -18,7 +18,7 @@ export const Filters: React.FC<Props> = ({
         const className = isSelected ? "selected" : "";
         return (
           <li key={key}>
-            <a href={href} className={className}}>
+            <a href={href} className={className} onClick={handleClick(key)}>
               {literal}
             </a>
           </li>
