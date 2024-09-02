@@ -11,7 +11,7 @@ export const Footer: React.FC<Props> = ({
         <strong>{todos.length}</strong> tareas pendientes
       </span>
 
-      <Filters filterSelected={"all"} onFilterChange={() => {}} />
+      <Filters filterSelected={} onFilterChange={() => {}} />
     </footer>
   );
 };
