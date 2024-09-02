@@ -1,4 +1,4 @@
-import { TodoId, type Todo as TodoType } from "../types";
+import { TodoId, type TodoType } from "../types";
 
 interface Props extends TodoType {
   onRemove: (id: TodoId) => void;
