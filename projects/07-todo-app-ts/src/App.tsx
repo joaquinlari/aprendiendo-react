@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Todos } from "./components/Todos";
-import { type TodoId, type TodoType } from "./types";
+import { FilterValue, type TodoId, type TodoType } from "./types";
 import { Footer } from "./components/Footer";
 import { TODO_FILTERS } from "./consts";
 
@@ -67,6 +67,7 @@ const App = (): JSX.Element => {
           activeCount={activeCount}
           completedCount={completedCount}
           filterSelected={filterSelected}
+          onClearCompleted={() => {}}
           handleFilterChange={handleFilterChange}
         />
       </div>
