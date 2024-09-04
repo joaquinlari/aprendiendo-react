@@ -63,23 +63,21 @@ const App = (): JSX.Element => {
   });
 
   return (
-    <>
-      <div className="todoapp">
-        <h1>To-do App</h1>
-        <Todos
-          todos={filteredTodos}
-          onRemove={handleRemove}
-          onCompleted={handleCompleted}
-        />
-        <Footer
-          activeCount={activeCount}
-          completedCount={completedCount}
-          filterSelected={filterSelected}
-          onClearCompleted={() => {}}
-          handleFiltersChange={handleFilterChange}
-        />
-      </div>
-    </>
+    <div className="todoapp">
+      <h1>To-do App</h1>
+      <Todos
+        todos={filteredTodos}
+        onRemove={handleRemove}
+        onCompleted={handleCompleted}
+      />
+      <Footer
+        activeCount={activeCount}
+        completedCount={completedCount}
+        filterSelected={filterSelected}
+        onClearCompleted={() => {}}
+        handleFiltersChange={handleFilterChange}
+      />
+    </div>
   );
 };
 
