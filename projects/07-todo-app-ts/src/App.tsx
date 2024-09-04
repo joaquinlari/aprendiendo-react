@@ -24,7 +24,9 @@ const mocksTodos = [
 
 const App = (): JSX.Element => {
   const [todos, setTodos] = useState(mocksTodos);
-  const [filterSelected, setFilterSelected] = useState(TODO_FILTERS.ALL);
+  const [filterSelected, setFilterSelected] = useState<FilterValue>(
+    TODO_FILTERS.ALL
+  );
 
   const handleRemove = (id: TodoId): void => {
     const newTodos = todos.filter((todo) => todo.id !== id);
@@ -68,7 +70,7 @@ const App = (): JSX.Element => {
           completedCount={completedCount}
           filterSelected={filterSelected}
           onClearCompleted={() => {}}
-          handleFilterChange={handleFilterChange}
+          handleFiltersChange={handleFilterChange}
         />
       </div>
     </>
