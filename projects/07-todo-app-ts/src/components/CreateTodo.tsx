@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { type TodoTitle } from "../types";
 
 interface Props {
@@ -5,5 +6,15 @@ interface Props {
 }
 
 export const CreateTodo: React.FC<Props> = ({ saveTodo }) => {
-  return <input className="new-todo" value={inputValue} />;
+  const [inputValue, setInputValue] = useState("");
+
+  return (
+    <input
+      className="new-todo"
+      value={inputValue}
+      onChange={() => {}}
+      onKeyDown={() => {}}
+      placeholder="Que quieres hacer?"
+    />
+  );
 };
