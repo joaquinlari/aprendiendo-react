@@ -4,6 +4,4 @@ interface Props {
   onAddTodo: ({ title }: TodoTitle) => void;
 }
 
-export const Header: React.FC<Props> = { onAddTodo } => {
-
-}
+export const CreateTodo: React.FC<Props> = ({ saveTodo }) => {};
