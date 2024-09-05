@@ -8,13 +8,16 @@ interface Props {
 export const CreateTodo: React.FC<Props> = ({ saveTodo }) => {
   const [inputValue, setInputValue] = useState("");
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {};
   return (
-    <input
-      className="new-todo"
-      value={inputValue}
-      onChange={() => {}}
-      onKeyDown={() => {}}
-      placeholder="Que quieres hacer?"
-    />
+    <form onSubmit={handleSubmit}>
+      <input
+        className="new-todo"
+        value={inputValue}
+        onChange={() => {}}
+        placeholder="Que quieres hacer?"
+        autoFocus
+      />
+    </form>
   );
 };
