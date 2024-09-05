@@ -5,8 +5,8 @@ export interface Todo {
 }
 
 export type TodoId = Todo["id"];
-export type TodoTitle = ["title"];
-export type TodoCompleted = ["completed"];
+export type TodoTitle = Todo["title"];
+export type TodoCompleted = Todo["completed"];
 
 export type ListOfTodos = Todo[];
 export type TodoType = Todo;

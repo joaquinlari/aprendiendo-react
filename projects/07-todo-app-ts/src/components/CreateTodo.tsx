@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { type TodoTitle } from "../types";
+import { type TodoTitle, type TodoType } from "../types";
 
 interface Props {
   onAddTodo: ({ title }: TodoTitle) => void;
@@ -8,7 +8,11 @@ interface Props {
 export const CreateTodo: React.FC<Props> = ({ saveTodo }) => {
   const [inputValue, setInputValue] = useState("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {};
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    saveTodo({ title: inputValue });
+    setInputValue("");
+  };
   return (
     <form onSubmit={handleSubmit}>
       <input
