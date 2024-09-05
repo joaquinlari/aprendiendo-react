@@ -1,3 +1,7 @@
+interface Props {
+  onAddTodo: (title: string) => void;
+}
+
 export const Header: React.FC<Props> = ({ onAddTodo }) => {
   return (
     <header className="header">
