@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { type TodoTitle, type TodoType } from "../types";
+import { type TodoTitle } from "../types";
 
 interface Props {
-  onAddTodo: ({ title }: TodoTitle) => void;
+  onAddTodo: (title: TodoTitle) => void;
 }
 
 export const CreateTodo: React.FC<Props> = ({ saveTodo }) => {

@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Todos } from "./components/Todos";
-import { FilterValue, type TodoId, type TodoType } from "./types";
+import {
+  FilterValue,
+  type TodoId,
+  type TodoType,
+  type TodoTitle,
+} from "./types";
 import { Footer } from "./components/Footer";
 import { TODO_FILTERS } from "./consts";
 import { Header } from "./components/Header";
@@ -68,7 +73,7 @@ const App = (): JSX.Element => {
     return todo;
   });
 
-  const handleAddTodo = ({ title }: TodoTitle): void => {
+  const handleAddTodo = (title: TodoTitle): void => {
     const newTodo = {
       title,
       id: crypto.randomUUID(),
