@@ -23,7 +23,8 @@ export const Filters: React.FC<Props> = ({
   handleFilterChange,
 }) => {
   const handleClick =
-    (filter: FilterValue) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    (filter: FilterValue) =>
+    (e: React.MouseEvent<HTMLAnchorElement>): void => {
       e.preventDefault();
       handleFilterChange(filter);
     };
