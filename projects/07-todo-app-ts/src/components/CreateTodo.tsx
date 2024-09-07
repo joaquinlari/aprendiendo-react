@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { type TodoTitle } from "../types";
 
 interface Props {
-  onAddTodo: (title: TodoTitle) => void;
+  saveTodo: (title: string) => void;
 }
 
 export const CreateTodo: React.FC<Props> = ({ saveTodo }) => {
@@ -10,7 +9,7 @@ export const CreateTodo: React.FC<Props> = ({ saveTodo }) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    saveTodo({ title: inputValue });
+    saveTodo(inputValue);
     setInputValue("");
   };
   return (
