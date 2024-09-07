@@ -1,14 +1,14 @@
+import type { TODO_FILTERS } from "./consts";
+
 export interface Todo {
-  id: number;
+  id: string;
   title: string;
   completed: boolean;
 }
 
-export type TodoId = Todo["id"];
-export type TodoTitle = Todo["title"];
-export type TodoCompleted = Todo["completed"];
-
-export type ListOfTodos = Todo[];
-export type TodoType = Todo;
+export type TodoId = Pick<Todo, "id">;
+export type TodoTitle = Pick<Todo, "title">;
 
 export type FilterValue = (typeof TODO_FILTERS)[keyof typeof TODO_FILTERS];
+
+export type TodoList = Todo[];
