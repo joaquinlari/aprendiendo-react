@@ -1,28 +1,35 @@
-import { FilterValue } from "../types";
+import { type FilterValue } from "../types";
 import { Filters } from "./Filters";
 
 interface Props {
+  handleFilterChange: (filter: FilterValue) => void;
   activeCount: number;
   completedCount: number;
-  filterSelected: FilterValue;
   onClearCompleted: () => void;
-  handleFiltersChange: (filter: FilterValue) => void;
+  filterSelected: FilterValue;
 }
 
 export const Footer: React.FC<Props> = ({
-  activeCount = 0,
-  completedCount = 0,
-  filterSelected,
+  activeCount,
+  completedCount,
   onClearCompleted,
-  handleFiltersChange,
+  filterSelected,
+  handleFilterChange,
 }) => {
+  const singleActiveCount = activeCount === 1;
+  const activeTodoWord = singleActiveCount ? "tarea" : "tareas";
+
   return (
     <footer className="footer">
       <span className="todo-count">
-        <strong>{activeCount}</strong> tareas pendientes
+        <strong>{activeCount}</strong> {activeTodoWord} pendiente
+        {!singleActiveCount && "s"}
       </span>
 
-      <Filters filterSelected={filterSelected} onFilterChange={() => {}} />
+      <Filters
+        filterSelected={filterSelected}
+        handleFilterChange={handleFilterChange}
+      />
 
       {completedCount > 0 && (
         <button className="clear-completed" onClick={onClearCompleted}>

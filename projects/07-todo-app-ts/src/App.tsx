@@ -83,6 +83,15 @@ const App = (): JSX.Element => {
     const newTodos = [...todos, newTodo];
     setTodos(newTodos);
   };
+  const handleSave = (title: string): void => {
+    const newTodo = {
+      id: crypto.randomUUID(),
+      title,
+      completed: false,
+    };
+
+    setTodos([...todos, newTodo]);
+  };
   return (
     <div className="todoapp">
       <Header onAddTodo={() => {}} />

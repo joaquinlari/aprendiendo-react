@@ -13,6 +13,7 @@ export const CreateTodo: React.FC<Props> = ({ saveTodo }) => {
       setInputValue("");
     }
   };
+
   return (
     <input
       className="new-todo"
