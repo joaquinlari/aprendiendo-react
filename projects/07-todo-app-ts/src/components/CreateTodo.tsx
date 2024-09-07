@@ -7,22 +7,22 @@ interface Props {
 export const CreateTodo: React.FC<Props> = ({ saveTodo }) => {
   const [inputValue, setInputValue] = useState("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
-    saveTodo(inputValue);
-    setInputValue("");
+  const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
+    if (e.key === "Enter" && inputValue !== "") {
+      saveTodo(inputValue);
+      setInputValue("");
+    }
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        className="new-todo"
-        value={inputValue}
-        onChange={(evt) => {
-          setInputValue(evt.target.value);
-        }}
-        placeholder="Que quieres hacer?"
-        autoFocus
-      />
-    </form>
+    <input
+      className="new-todo"
+      value={inputValue}
+      onChange={(e) => {
+        setInputValue(e.target.value);
+      }}
+      onKeyDown={handleKeyDown}
+      placeholder="¿Qué quieres hacer?"
+      autoFocus
+    />
   );
 };
